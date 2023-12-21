@@ -1,0 +1,384 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags --> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Thyroid_diesease Admin</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="{% static 'admin/vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/base/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="{% static 'admin/vendors/flag-icon-css/css/flag-icon.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'admin/vendors/font-awesome/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/jquery-bar-rating/fontawesome-stars-o.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/jquery-bar-rating/fontawesome-stars.css' %}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'admin/css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'admin/images/favicon.png' %}" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo"><img src="{% static 'admin/images/Capture10.PNG'%}" alt="logo"/ style="width:50px;height:30px; border-radius:10px;"></a>
+        <a class="navbar-brand brand-logo-mini" ><img src="{% static 'admin/images/Capture10.PNG'%}" alt="logo"/ style="width:50px;height:30px;border-radius:10px;"></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search Projects.." aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown d-flex">
+            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-air-play mx-0"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="{% static 'admin/images/faces/face4.jpg' %}" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    The meeting is cancelled
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="{% static 'admin/images/faces/face2.jpg' %}" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    New product launch
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="{% static 'admin/images/faces/face3.jpg' %}" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    Upcoming board meeting
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-flex mr-4 ">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-cog"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
+              <div class="dropdown-item preview-item">
+                <a href="{% url 'admin_logout' %}"><button class="btn btn-muted d-flex ml-auto mt-3 mr-4" style="border-radius: 5px;"><i class="fa fa-sign-out" style='color:black; font-size:1.2rem'></i>Logout</button></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="user-profile">
+          <div class="user-image">
+            <img src="{% static 'admin/images/faces/face28.png' %}">
+          </div>
+          <div class="user-name">
+              Codebook
+          </div>
+          <div class="user-designation">
+              Developer
+          </div>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin_dashboard' %}">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">User Management</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_pendings' %}">Pending Users</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_allusers' %}">All Users</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#basic" aria-expanded="false" aria-controls="basic">
+              <i class="icon-file menu-icon"></i>
+              <span class="menu-title">Upload Dataset</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_upload' %}">Upload Dataset</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_view' %}"> view Dataset</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#bas" aria-expanded="false" aria-controls="bas">
+              <i class="icon-command menu-icon"></i>
+              <span class="menu-title">Algorithems</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="bas">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_Xg_algo' %}">XG-BOOST Algorithem</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_ada_algo' %}">ADA-BOOST Algorithem</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_Logistic_algo' %}">Logistic Algorithem</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_knn_algo' %}">KNN -Algorithem</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_Randomforest_algo' %}">Random Forest-Algorithem</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_dt_algo' %}">Decision Tree Algorithem</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_greadient_algo' %}">Greadient-Algorithem</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_svm_algo' %}">SVM Algorithem</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#sic" aria-expanded="false" aria-controls="sic">
+              <i class="icon-pie-graph menu-icon"></i>
+              <span class="menu-title">Admin Graph</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="sic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_graph' %}">Admin Graph Analysis</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">User Feedbacks</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_feedback' %}">Feedbacks </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_sentiment' %}">Sentiment Analysis </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'admin_feedbackgraph' %}">Feedbacks Graph</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12 mb-4 mb-xl-0">
+              <h4 class="font-weight-bold text-dark">Hi, welcome back! All Users</h4>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-md-12 tablebg">
+                  <div class="card text-center">
+                      <div class="table-responsive pt-3">
+                          <table class="table table-striped project-orders-table">
+                              <thead>
+                                  <tr class='' style = ''>
+                                      <th style="text-align:center; font-weight:bold;">S.No</th>
+                                      <th style="text-align:center; font-weight:bold;">User Profile</th>
+                                      <th style="text-align:center; font-weight:bold;">Name</th>
+                                      <th style="text-align:center; font-weight:bold;">Email</th>
+                                      <th style="text-align:center; font-weight:bold;">Phone Number</th>
+                                      <th style="text-align:center; font-weight:bold;">Age</th>
+                                      <th style="text-align:center; font-weight:bold;">Status</th>
+                                      <th style="text-align:center; font-weight:bold;">Action</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {% for a in user %}
+                                      <tr class="">
+                                          <td>{{a.User_id}}</td>
+                                          <td><img src="media/{{a.Image}}" style="border-radius: 50%; width:50px; height:50px;"/> </td>
+                                          <td>{{a.Full_name}}</td>
+                                          <td>{{a.Email}}</td>
+                                          <td>{{a.Phone_Number}}</td>
+                                          <td>{{a.Age}}</td>
+                                          <td id = 'status' class="">
+                                              {% if a.User_Status == "accepted" %}
+                                              <label class="text-success">accepted</label>
+                                              {% elif a.User_Status == "removed" %} 
+                                              <label class="text-danger">rejected</label>
+                                              {% else %}
+                                              <label class="text-warning">pending</label>
+                                              {% endif %} 
+                                          </td>
+                                          <td>
+                                          <div>
+                                              {% comment %} <a href = "{% url 'change_status' a.User_id %}">
+                                                  <button type="button" class="btn btn-primary btn-sm btn-icon-text mr-3">
+                                                      Change Status
+                                                      <i class="fa fa-circle-info ml-2" style="font-size: 15px;"></i>
+                                                  </button>
+                                              </a>  {% endcomment %}
+                                              <a href="{% url 'delete_user' a.User_id %}">
+                                                  <button onclick='return myFunction()' class="btn btn-danger btn-sm btn-icon-text">
+                                                      Delete
+                                                      <i class="fa fa-trash-can ml-2" style="font-size: 15px;"></i>                          
+                                                  </button>
+                                              </a>
+                                          </div>
+                                          </td>
+                                      </tr>
+                                          <script>
+                                              function myFunction() {
+                                                  let text = "Delete confirm";
+                                                  if (confirm(text) == true) {
+                                                  } 
+                                                  else {
+                                                      return false;
+                                                  }
+                                              }
+                                          </script>
+                                      {% endfor %} 
+                              </tbody>
+                          </table>
+                          {% comment %} Pagination start {% endcomment %}
+                             <nav aria-label="Page navigation example ">
+                                  <ul class="pagination ml-2">
+                                      {% if user.has_previous %}
+                                          <!-- <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li> -->
+                                          <li class="page-item"><a class="page-link bg-info text-white" href="?page={{ user.previous_page_number }}">Previous</a></li>
+                                      {% endif %}
+                                      {% if user.has_next %}
+                                      <li class="page-item"><a class="page-link bg-info text-white" href="?page={{ user.next_page_number }}">Next</a></li>
+                                      <!-- <li class="page-item"><a class="page-link" href="?page={{ r.paginator.num_pages }}">Last &raquo;</a></li> -->
+                                      {% endif %}
+                                  </ul>
+                                  Page {{ user.number }} of {{ user.paginator.num_pages }}.
+                              </nav> 
+                          {% comment %} Pagination End {% endcomment %}
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+          
+            
+       
+         
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Codebook.in 2023</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free </span>
+          </div>
+          <span class="text-muted d-block text-center text-sm-left d-sm-inline-block mt-2">Distributed By:Codebook</span> 
+        </footer>
+        
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+  <script src="{% static 'admin/vendors/base/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'admin/js/off-canvas.js' %}"></script>
+  <script src="{% static 'admin/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'admin/js/template.js' %}"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="{% static 'admin/vendors/chart.js/Chart.min.js' %}"></script>
+  <script src="{% static 'admin/vendors/jquery-bar-rating/jquery.barrating.min.js' %}"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'admin/js/dashboard.js' %}"></script>
+  {% if messages %}
+{% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <script>swal({
+                title: "Success!",
+                text: "{{message}}",
+                icon: "success",
+                button: "OK",
+            });
+        </script>
+    
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+        <script>swal({
+                title: "Warning :)",
+                text: "{{message}}",
+                icon: "warning",
+                button: "OK",
+            
+            });
+        </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+        <script>swal({
+                title: "info :)",
+                text: "{{message}}",
+                icon: "info",
+                button: "OK",
+            });
+        </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <script>swal({
+                title: "error :)",
+                text: "{{message}}",
+                icon: "error",
+                button: "OK",
+            });
+        </script>
+    {% endif %}
+{% endfor %}
+{% endif %}
+  <!-- End custom js for this page-->
+</body>
+
+</html>
+

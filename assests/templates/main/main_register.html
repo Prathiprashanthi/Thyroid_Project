@@ -1,0 +1,567 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Thyroid disorder</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'main/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Red+Rose:wght@600;700&display=swap"
+         rel="stylesheet">
+ 
+     <!-- Icon Font Stylesheet -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+ 
+     <!-- Libraries Stylesheet -->
+     <link href="{% static 'main/lib/animate/animate.min.css" rel="stylesheet' %}">
+     <link href="{% static 'main/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+ 
+     <!-- Customized Bootstrap Stylesheet -->
+     <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
+ 
+     <!-- Template Stylesheet -->
+     <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <style>
+
+		body {
+		color: #000;
+		overflow-x: hidden;
+		height: 100%;
+		/* background-color: #B0BEC5; */
+		background-repeat: no-repeat;
+	}
+	
+	.card0 {
+		box-shadow: 0px 4px 8px 0px #757575;
+		border-radius: 0px;
+	}
+	
+	.card2 {
+		margin: 0px 40px;
+	}
+	
+	.logo {
+		width: 200px;
+		height: 100px;
+		margin-top: 20px;
+		margin-left: 35px;
+	}
+	
+	.image {
+		width: 360px;
+		height: 280px;
+	}
+	
+	.border-line {
+		border-right: 1px solid #EEEEEE;
+	}
+	
+	.facebook {
+		background-color: #3b5998;
+		color: #fff;
+		font-size: 18px;
+		padding-top: 5px;
+		border-radius: 50%;
+		width: 35px;
+		height: 35px;
+		cursor: pointer;
+	}
+	
+	.twitter {
+		background-color: #1DA1F2;
+		color: #fff;
+		font-size: 18px;
+		padding-top: 5px;
+		border-radius: 50%;
+		width: 35px;
+		height: 35px;
+		cursor: pointer;
+	}
+	
+	.linkedin {
+		background-color: #2867B2;
+		color: #fff;
+		font-size: 18px;
+		padding-top: 5px;
+		border-radius: 50%;
+		width: 35px;
+		height: 35px;
+		cursor: pointer;
+	}
+	
+	.line {
+		height: 1px;
+		width: 45%;
+		background-color: #E0E0E0;
+		margin-top: 10px;
+	}
+	
+	.or {
+		width: 10%;
+		font-weight: bold;
+	}
+	
+	.text-sm {
+		font-size: 14px !important;
+	}
+	
+	::placeholder {
+		color: #BDBDBD;
+		opacity: 1;
+		font-weight: 300
+	}
+	
+	:-ms-input-placeholder {
+		color: #BDBDBD;
+		font-weight: 300
+	}
+	
+	::-ms-input-placeholder {
+		color: #BDBDBD;
+		font-weight: 300
+	}
+	
+	input, textarea {
+		padding: 10px 12px 10px 12px;
+		border: 1px solid lightgrey;
+		border-radius: 2px;
+		margin-bottom: 5px;
+		margin-top: 2px;
+		width: 100px;
+		box-sizing: border-box;
+		color: #2C3E50;
+		font-size: 14px;
+		letter-spacing: 1px;
+	}
+	
+	input:focus, textarea:focus {
+		-moz-box-shadow: none !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+		border: 1px solid #304FFE;
+		outline-width: 0;
+	}
+	
+	button:focus {
+		-moz-box-shadow: none !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+		outline-width: 0;
+	}
+	
+	a {
+		color: inherit;
+		cursor: pointer;
+	}
+	
+	.btn-blue {
+		background-color: #3368c6;
+		width: 150px;
+		color: #fff;
+		border-radius: 2px;
+	}
+	
+	.btn-blue:hover {
+		background-color: rgb(20, 87, 159);
+		cursor: pointer;
+	}
+	
+	.bg-blue {
+		color: #fff;
+		background-color: #3368c6;
+	}
+	
+	@media screen and (max-width: 991px) {
+		.logo {
+			margin-left: 0px;
+		}
+	
+		.image {
+			width: 300px;
+			height: 220px;
+		}
+	
+		.border-line {
+			border-right: none;
+		}
+	
+		.card2 {
+			border-top: 1px solid #EEEEEE !important;
+			margin: 0px 15px;
+		}
+	}
+  
+        .custome{
+            color:black;
+        }
+    </style>
+	
+    
+                
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid py-2 d-none d-lg-flex">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <small class="me-3"><i class="fa fa-map-marker-alt me-2"></i>Our location
+                        Hyderabad</small>
+                    <small class="me-3"><i class="fa fa-clock me-2"></i>Mon-Sat 09am-5pm, Sun Closed</small>
+                </div>
+                <nav class="breadcrumb mb-0">
+                    <a class="breadcrumb-item small text-body" href="#">Career</a>
+                    <a class="breadcrumb-item small text-body" href="#">Support</a>
+                    <a class="breadcrumb-item small text-body" href="#">Terms</a>
+                    <a class="breadcrumb-item small text-body" href="#">FAQs</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Brand Start -->
+    <div class="container-fluid bg-primary text-white pt-4 pb-5 d-none d-lg-flex">
+        <div class="container pb-2">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex">
+                    <i class="bi bi-telephone-inbound fs-2"></i>
+                    <div class="ms-3">
+                        <h5 class="text-white mb-0">Call Now</h5>
+                        <span>+91 8555 8879 86</span>
+                    </div>
+                </div>
+                <a href="index.html" class="h1 text-white mb-0">Thyroid<span class="custome">disorder</span></a>
+                <div class="d-flex">
+                    <i class="bi bi-envelope fs-2"></i>
+                    <div class="ms-3">
+                        <h5 class="text-white mb-0">Mail Now</h5>
+                        <span>info@codebook.in</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Brand End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
+                <a href="index.html" class="navbar-brand d-lg-none">
+                    <h1 class="text-primary m-0">Thyroid<span class="custome">disorder</span></h1>
+                </a>
+                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="{% url 'main_homepage'%}" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'user_login'%}" class="nav-item nav-link">User</a>
+                        <a href="{% url 'admin_login'%}" class="nav-item nav-link">Admin</a>
+                        <a href="{% url 'aboutus'%}" class="nav-item nav-link">About</a>
+                        <a href="{% url 'contact'%}" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <div class="ms-auto d-none d-lg-flex">
+                        <a class="btn btn-sm-square btn-primary ms-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-sm-square btn-primary ms-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-sm-square btn-primary ms-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-sm-square btn-primary ms-2" href=""><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5 mt-4">
+            <h1 class="display-2 text-white mb-3 animated slideInDown">Sign Up</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item" aria-current="page">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    
+    <div class="container" style="padding-top:100px;">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="wrapper">
+                    <div class="row no-gutters">
+                        <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Registration Page</h3>
+                                <form method="POST" id="myform" name="myform"   class="contactForm" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-group">
+                                                <label class="label" for="name">Full Name</label>
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-group">
+                                                <label class="label" for="email">Age</label>
+                                                <input type="age" class="form-control" name="age" id="age" placeholder="Age">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-group">
+                                                <label class="label" for="name">Mobile Number</label>
+                                                <input type="phone" class="form-control" name="mobile" id="mobile" placeholder="98480***">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-group">
+                                                <label class="label" for="email">Email Address</label>
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-group">
+                                                <label class="label" for="password">Password</label>
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-group">
+                                                <label class="label" for="Address">Address</label>
+                                                <input type="Address" class="form-control" name="address" id="cpassword" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-4">
+                                            <div class="form-group">
+                                                <label class="label" for="file">Profile picture</label>
+                                                <input type="file" class="form-control" name="image" id="file">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="submit" class="btn btn-primary">
+
+                                                <label>To redirect to the login page, click <a href="#">here</a></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
+                            <div class="info-wrap bg-primary w-100 p-md-5 p-4">
+                                <h3 style="color:#fff;">Thyroid-disorder</h3>
+                                
+                                <p style="color:#fff;">
+
+                                    Treatment depends on the specific thyroid disorder and its underlying cause. It may involve medications to regulate hormone levels, radioactive iodine therapy, surgery to remove part or all of the thyroid gland, or other approaches.</p>
+                                    <p class="mb-4"style="color:#fff;"><b>Please Register and Login To know more...</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Contact End -->
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            
+            <div class="row contact-info position-relative g-0 mb-5">
+                <div class="col-lg-6">
+                    <a href="tel:+0123456789" class="d-flex justify-content-lg-center bg-primary p-4">
+                        <div class="icon-box-light flex-shrink-0">
+                            <i class="bi bi-phone text-dark"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="text-white">Call Us</h5>
+                            <h2 class="text-white mb-0">+91 8555 8879 86</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a href="mailto:info@example.com" class="d-flex justify-content-lg-center bg-primary p-4">
+                        <div class="icon-box-light flex-shrink-0">
+                            <i class="bi bi-envelope text-dark"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="text-white">Mail Us</h5>
+                            <h2 class="text-white mb-0">info@codebook.in</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+  <!-- Footer Start -->
+  <div class="container-fluid footer position-relative bg-dark text-white-50 py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row g-5 py-5">
+            <div class="col-lg-6 pe-lg-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="h1 text-primary mb-0">Thyroid<span class="text-white">disorder</span></h1>
+                </a>
+                <p class="fs-5 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor.</p>
+                <p><i class="fa fa-map-marker-alt me-2"></i>Our location
+                    Hyderabad</p>
+                <p><i class="fa fa-phone-alt me-2"></i>+91 8555 8879 86</p>
+                <p><i class="fa fa-envelope me-2"></i>info@codebook.in</p>
+                <div class="d-flex mt-4">
+                    <a class="btn btn-lg-square btn-primary me-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg-square btn-primary me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg-square btn-primary me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg-square btn-primary me-2" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <div class="row g-5">
+                    <div class="col-sm-6">
+                        <h4 class="text-light mb-4">Quick Links</h4>
+                        <a class="btn btn-link" href="">About Us</a>
+                        <a class="btn btn-link" href="">Contact Us</a>
+                        <a class="btn btn-link" href="">Our Services</a>
+                        <a class="btn btn-link" href="">Terms & Condition</a>
+                        <a class="btn btn-link" href="">Support</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="text-light mb-4">Popular Links</h4>
+                        <a class="btn btn-link" href="">About Us</a>
+                        <a class="btn btn-link" href="">Contact Us</a>
+                        <a class="btn btn-link" href="">Our Services</a>
+                        <a class="btn btn-link" href="">Terms & Condition</a>
+                        <a class="btn btn-link" href="">Support</a>
+                    </div>
+                    <div class="col-sm-12">
+                        <h4 class="text-light mb-4">Newsletter</h4>
+                        <div class="w-100">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-0 py-3 px-4" style="background: rgba(255, 255, 255, .1);" placeholder="Your Email Address"><button class="btn btn-primary px-4">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright bg-dark text-white-50 py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; <a href="#">Your Site Name</a>. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                <p class="mb-0">Designed by Codebook.in<br>Distributed by Codebook</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'main/lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'main/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'main/lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'main/lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'main/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'main/js/main.js' %}"></script>
+{% if messages %}
+{% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <script>swal({
+                title: "Success!",
+                text: "{{message}}",
+                icon: "success",
+                button: "OK",
+            });
+        </script>
+    
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+        <script>swal({
+                title: "Warning :)",
+                text: "{{message}}",
+                icon: "warning",
+                button: "OK",
+            
+            });
+        </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+        <script>swal({
+                title: "info :)",
+                text: "{{message}}",
+                icon: "info",
+                button: "OK",
+            });
+        </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <script>swal({
+                title: "error :)",
+                text: "{{message}}",
+                icon: "error",
+                button: "OK",
+            });
+        </script>
+    {% endif %}
+{% endfor %}
+{% endif %}
+</body>
+
+</html>
